@@ -9,7 +9,6 @@ DateTime::DateTime()
 {
     time_t now = time(0);
     _dateTime = ctime(&now);
-    std::cout << "The local date and time is: " << _dateTime << std::endl;
 }
 
 DateTime::DateTime(DateTime const & rhs)
@@ -31,5 +30,7 @@ DateTime::~DateTime()
 
 std::string DateTime::getDateTime()
 {
+    time_t now = time(0);
+    _dateTime = ctime(&now);
     return _dateTime;
 }

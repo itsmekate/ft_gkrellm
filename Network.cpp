@@ -32,5 +32,11 @@ Network::~Network()
 }
 std::string Network::getNetwork()
 {
+    char line[80];
+
+    FILE *top = popen("top -l 1| grep Networks ", "r");
+    fgets(line, sizeof(line), top);
+    pclose(top);
+    _network = line;
     return _network;
 }

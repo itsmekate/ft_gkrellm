@@ -6,6 +6,7 @@
 #define FT_GKRELLM_DATETIME_H
 #include <string>
 #include <ctime>
+#include "Ncurses.h"
 
 class DateTime {
     private:

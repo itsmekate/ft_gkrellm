@@ -7,19 +7,24 @@
 
 int main(int argc, char **argv)
 {
+    Hostname *hn = new Hostname();
+    DateTime *dt = new DateTime();
+    OSInfo *info = new OSInfo();
+    Network *n = new Network();
     if (argc > 1)
     {
         std::string arg1(argv[1]);
         if(arg1 == "ncurses")
         {
             Ncurses *nc= new Ncurses();
-            std::cout << nc->getWindow() << std::endl;
+            while(1)
+            {
+                nc->outputHostWindow(*dt, *hn);
+                nc->outputOSInfoWindow(*info);
+                nc->outputNetwork(*n);
+            }
         }
     }
-//    Hostname *hn = new Hostname();
-//    DateTime *dt = new DateTime();
-//    OSInfo *info = new OSInfo();
-//    Network *n = new Network();
 //
 //    std::cout << "Host name is: " << hn->getHostName() << std::endl;
 //    std::cout << "User name is: " << hn->getUserName() << std::endl;
@@ -35,6 +40,6 @@ int main(int argc, char **argv)
 //    std::cout << info->getInfo() << std::endl;
 //    std::cout << "-------------------" << std::endl;
 //    std::cout << n->getNetwork() << std::endl;
-
+        sleep(10);
     return 0;
 }
