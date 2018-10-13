@@ -7,23 +7,15 @@
 
 int main(int argc, char **argv)
 {
-    Hostname *hn = new Hostname();
-    DateTime *dt = new DateTime();
-    OSInfo *info = new OSInfo();
-    Network *n = new Network();
+//    Hostname *hn = new Hostname();
+//    DateTime *dt = new DateTime();
+//    OSInfo *info = new OSInfo();
+//    Network *n = new Network();
     if (argc > 1)
     {
         std::string arg1(argv[1]);
         if(arg1 == "ncurses")
-        {
-            Ncurses *nc= new Ncurses();
-            while(1)
-            {
-                nc->outputHostWindow(*dt, *hn);
-                nc->outputOSInfoWindow(*info);
-                nc->outputNetwork(*n);
-            }
-        }
+           new Ncurses();
     }
 //
 //    std::cout << "Host name is: " << hn->getHostName() << std::endl;

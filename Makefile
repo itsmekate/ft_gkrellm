@@ -6,6 +6,8 @@ Hostname.cpp \
 Ncurses.cpp \
 Network.cpp \
 OSInfo.cpp \
+CPU.cpp \
+REM.cpp \
 
 OBJ = $(SRCS:.cpp=.o)
 

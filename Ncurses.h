@@ -10,10 +10,15 @@
 #include "Hostname.h"
 #include "OSInfo.h"
 #include "Network.h"
+#include "CPU.h"
+#include "REM.h"
 
 class DateTime;
 class Hostname;
 class OSInfo;
+class Network;
+class CPU;
+class REM;
 
 class Ncurses {
     public:
@@ -28,9 +33,16 @@ class Ncurses {
         WINDOW *getWindowCPU();
         WINDOW *getWindowREM();
 
+        void initpairs();
+        void drawborders();
+        void initwindows();
+        void runNcurses();
         void outputHostWindow(DateTime dt, Hostname hn);
         void outputOSInfoWindow(OSInfo info);
         void outputNetwork(Network n);
+        void outputCPU(CPU cp);
+        void outputREM(REM rm);
+        void outputCAT();
 
     private:
         WINDOW *_winHost;
@@ -38,6 +50,7 @@ class Ncurses {
         WINDOW *_winOSInfo;
         WINDOW *_winCPU;
         WINDOW *_winREM;
+        WINDOW *_winCAT;
 };
 
 
