@@ -84,3 +84,8 @@ void Cat::print_cat2(WINDOW *_winCAT)
     wattroff(_winCAT, COLOR_PAIR(1));
     wrefresh(_winCAT);
 }
+
+void Cat::outputCPU(WINDOW *_winCPU){(void) _winCPU;}
+void Cat::outputNetwork(WINDOW *_winNetwork){(void) _winNetwork;}
+void Cat::outputREM(WINDOW *_winREM){(void) _winREM;}
+void Cat::outputOSInfoWindow(WINDOW *_winOSInfo){(void) _winOSInfo;}

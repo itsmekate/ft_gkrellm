@@ -65,3 +65,7 @@ void CPU::outputCPU(WINDOW *_winCPU)
     wattroff(_winCPU, COLOR_PAIR(1));
     wrefresh(_winCPU);
 }
+
+void CPU::outputNetwork(WINDOW *_winNetwork){(void) _winNetwork;}
+void CPU::outputREM(WINDOW *_winREM){(void) _winREM;}
+void CPU::outputOSInfoWindow(WINDOW *_winOSInfo){(void) _winOSInfo;}

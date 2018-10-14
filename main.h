@@ -12,10 +12,6 @@
 #include <limits.h>
 #include <sys/utsname.h>
 
-//#include "Network.h"
-//#include "CPU.h"
-//#include "REM.h"
-//#include "Cat.h"
 #include "Ncurses.h"
 #include "IMonitorModule.h"
 

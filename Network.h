@@ -15,6 +15,9 @@ class Network: public IMonitorModule {
         std::string getNetwork();
 
         void    outputNetwork(WINDOW *_winNetwork);
+        void outputCPU(WINDOW *_winCPU);
+        void outputREM(WINDOW *_winREM);
+        void outputOSInfoWindow(WINDOW *_winOSInfo);
 
 
     private:

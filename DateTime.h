@@ -16,6 +16,10 @@ class DateTime : public IMonitorModule{
         ~DateTime();
 
         std::string getDateTime();
+        void outputCPU(WINDOW *_winCPU);
+        void outputNetwork(WINDOW *_winNetwork);
+        void outputREM(WINDOW *_winREM);
+        void outputOSInfoWindow(WINDOW *_winOSInfo);
 
 };
 

@@ -5,6 +5,8 @@
 #ifndef FT_GKRELLM_CPU_H
 #define FT_GKRELLM_CPU_H
 #include "IMonitorModule.h"
+#include "DateTime.h"
+#include "Hostname.h"
 
 class CPU : public IMonitorModule {
     public:
@@ -15,6 +17,9 @@ class CPU : public IMonitorModule {
         std::string getCPU();
 
         void outputCPU(WINDOW *_winCPU);
+        void outputNetwork(WINDOW *_winNetwork);
+        void outputREM(WINDOW *_winREM);
+        void outputOSInfoWindow(WINDOW *_winOSInfo);
 
 
     private:

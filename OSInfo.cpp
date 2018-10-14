@@ -59,3 +59,7 @@ void    OSInfo::outputOSInfoWindow(WINDOW *_winOSInfo)
     wattroff(_winOSInfo, COLOR_PAIR(1));
     wrefresh(_winOSInfo);
 }
+
+void OSInfo::outputCPU(WINDOW *_winCPU){(void) _winCPU;}
+void OSInfo::outputNetwork(WINDOW *_winNetwork){(void) _winNetwork;}
+void OSInfo::outputREM(WINDOW *_winREM){(void) _winREM;}

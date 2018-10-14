@@ -68,3 +68,6 @@ void    Network::outputNetwork(WINDOW *_winNetwork)
     wrefresh(_winNetwork);
 }
 
+void  Network::outputCPU(WINDOW *_winCPU){(void) _winCPU;}
+void  Network::outputREM(WINDOW *_winREM){(void) _winREM;}
+void  Network::outputOSInfoWindow(WINDOW *_winOSInfo){(void) _winOSInfo;}

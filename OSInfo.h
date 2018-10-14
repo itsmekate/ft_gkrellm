@@ -17,6 +17,9 @@ class OSInfo : public IMonitorModule{
         ~OSInfo();
 
         void   outputOSInfoWindow(WINDOW *_winOSInfo);
+        void outputCPU(WINDOW *_winCPU);
+        void outputNetwork(WINDOW *_winNetwork);
+        void outputREM(WINDOW *_winREM);
 
 private:
         struct utsname _buf;

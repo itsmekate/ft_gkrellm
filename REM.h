@@ -15,6 +15,9 @@ class REM : public IMonitorModule{
         std::string getREM();
 
          void outputREM(WINDOW *_winREM);
+        void outputCPU(WINDOW *_winCPU);
+        void outputNetwork(WINDOW *_winNetwork);
+        void outputOSInfoWindow(WINDOW *_winOSInfo);
 
 
     private:

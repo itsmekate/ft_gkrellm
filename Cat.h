@@ -15,6 +15,10 @@ class Cat : public IMonitorModule {
 
         void print_cat1(WINDOW *_winCAT);
         void print_cat2(WINDOW *_winCAT);
+        void outputCPU(WINDOW *_winCPU);
+        void outputNetwork(WINDOW *_winNetwork);
+        void outputREM(WINDOW *_winREM);
+        void outputOSInfoWindow(WINDOW *_winOSInfo);
 
 };
 

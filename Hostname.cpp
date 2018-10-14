@@ -5,6 +5,7 @@
 #include "Hostname.h"
 
 
+
 Hostname::Hostname()
 {
     gethostname(_hostname,  20);
@@ -15,15 +16,6 @@ Hostname::Hostname(Hostname const & rhs)
 {
     *this = rhs;
 }
-//Hostname & Hostname::operator=(Hostname const &rhs)
-//{
-//    if (this != &rhs)
-//    {
-//        _hostname=rhs._hostname;
-//        _username=rhs._username;
-//    }
-//    return (*this);
-//}
 Hostname::~Hostname()
 {
 
@@ -37,3 +29,8 @@ char* Hostname::getUserName()
 {
     return _username;
 }
+
+void Hostname::outputCPU(WINDOW *_winCPU){(void) _winCPU;}
+void Hostname::outputNetwork(WINDOW *_winNetwork){(void) _winNetwork;}
+void Hostname::outputREM(WINDOW *_winREM){(void) _winREM;}
+void Hostname::outputOSInfoWindow(WINDOW *_winOSInfo){(void) _winOSInfo;}

@@ -33,3 +33,8 @@ std::string DateTime::getDateTime()
     _dateTime = ctime(&now);
     return _dateTime;
 }
+
+void DateTime::outputCPU(WINDOW *_winCPU){(void) _winCPU;}
+void DateTime::outputNetwork(WINDOW *_winNetwork){(void) _winNetwork;}
+void DateTime::outputREM(WINDOW *_winREM){(void) _winREM;}
+void DateTime::outputOSInfoWindow(WINDOW *_winOSInfo){(void) _winOSInfo;}

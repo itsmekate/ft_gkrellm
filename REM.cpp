@@ -69,3 +69,7 @@ void REM::outputREM(WINDOW *_winREM)
     wattroff(_winREM, COLOR_PAIR(1));
     wrefresh(_winREM);
 }
+
+void REM::outputCPU(WINDOW *_winCPU){(void)_winCPU;}
+void REM::outputNetwork(WINDOW *_winNetwork){(void) _winNetwork;}
+void REM::outputOSInfoWindow(WINDOW *_winOSInfo){(void) _winOSInfo;}
