@@ -4,9 +4,9 @@
 
 #ifndef FT_GKRELLM_HOSTNAME_H
 #define FT_GKRELLM_HOSTNAME_H
-#include "main.h"
+#include "IMonitorModule.h"
 
-class Hostname{
+class Hostname : public IMonitorModule{
     public:
     Hostname();
     Hostname(Hostname const & rhs);

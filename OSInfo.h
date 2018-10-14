@@ -4,9 +4,11 @@
 
 #ifndef FT_GKRELLM_OSINFO_H
 #define FT_GKRELLM_OSINFO_H
-#include "main.h"
+#include <string>
+#include "Ncurses.h"
+#include "IMonitorModule.h"
 
-class OSInfo{
+class OSInfo : public IMonitorModule{
 
     public:
         OSInfo();

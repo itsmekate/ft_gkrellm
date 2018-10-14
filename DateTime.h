@@ -4,9 +4,9 @@
 
 #ifndef FT_GKRELLM_DATETIME_H
 #define FT_GKRELLM_DATETIME_H
-#include "main.h"
+#include "IMonitorModule.h"
 
-class DateTime{
+class DateTime : public IMonitorModule{
     private:
      std::string _dateTime;
     public:

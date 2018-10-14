@@ -4,9 +4,9 @@
 
 #ifndef FT_GKRELLM_REM_H
 #define FT_GKRELLM_REM_H
-#include "main.h"
+#include "IMonitorModule.h"
 
-class REM{
+class REM : public IMonitorModule{
     public:
         REM();
         REM(REM const &rhs);

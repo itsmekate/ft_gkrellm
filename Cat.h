@@ -4,9 +4,9 @@
 
 #ifndef FT_GKRELLM_CAT_H
 #define FT_GKRELLM_CAT_H
-#include "main.h"
+#include "IMonitorModule.h"
 
-class Cat {
+class Cat : public IMonitorModule {
     public:
         Cat();
         Cat(Cat const &rhs);

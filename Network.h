@@ -4,9 +4,9 @@
 
 #ifndef FT_GKRELLM_NETWORK_H
 #define FT_GKRELLM_NETWORK_H
-#include "main.h"
+#include "IMonitorModule.h"
 
-class Network {
+class Network: public IMonitorModule {
     public:
         Network();
         Network(Network const &rhs);

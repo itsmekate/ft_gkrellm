@@ -13,8 +13,8 @@ class IMonitorModule
 {
     public:
         virtual void outputCPU(WINDOW *_winCPU) = 0;
-        virtual void outputNetwork(WINDOW *_winNetwork) = 0;
-        virtual void outputREM(WINDOW *_winREM) = 0;
+//        virtual void outputNetwork(WINDOW *_winNetwork) = 0;
+//        virtual void outputREM(WINDOW *_winREM) = 0;
 //        virtual void outputOSInfoWindow(WINDOW *_winOSInfo)const = 0;
 };
 

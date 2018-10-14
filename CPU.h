@@ -4,9 +4,9 @@
 
 #ifndef FT_GKRELLM_CPU_H
 #define FT_GKRELLM_CPU_H
-#include "main.h"
+#include "IMonitorModule.h"
 
-class CPU {
+class CPU : public IMonitorModule {
     public:
         CPU();
         CPU(CPU const &rhs);
