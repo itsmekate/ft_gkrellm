@@ -4,10 +4,9 @@
 
 #ifndef FT_GKRELLM_HOSTNAME_H
 #define FT_GKRELLM_HOSTNAME_H
-#include <unistd.h>
-#include <limits.h>
+#include "main.h"
 
-class Hostname {
+class Hostname{
     public:
     Hostname();
     Hostname(Hostname const & rhs);

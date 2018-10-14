@@ -4,15 +4,17 @@
 
 #ifndef FT_GKRELLM_REM_H
 #define FT_GKRELLM_REM_H
-#include <string>
+#include "main.h"
 
-class REM {
+class REM{
     public:
         REM();
         REM(REM const &rhs);
         REM const & operator=(REM const &rhs);
         ~REM();
         std::string getREM();
+
+         void outputREM(WINDOW *_winREM);
 
 
     private:

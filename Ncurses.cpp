@@ -17,7 +17,7 @@ Ncurses::Ncurses()
     initwindows();
     initpairs();
     drawborders();
-    runNcurses();
+//    runNcurses();
 }
 Ncurses::Ncurses(Ncurses &rhs)
 {
@@ -60,7 +60,7 @@ void Ncurses::initwindows()
     _winOSInfo = newwin(5, 60, 5, 0);
     _winCPU = newwin(5, 60, 15, 0);
     _winREM = newwin(5, 60, 20, 0);
-    _winCAT = newwin(15, 60, 25, 0);
+    _winCAT = newwin(20, 60, 25, 0);
     nodelay(_winHost, true);
     nodelay(_winNetwork, true);
     nodelay(_winOSInfo, true);
@@ -105,18 +105,33 @@ void    Ncurses::runNcurses()
     Network *n = new Network();
     CPU *cp = new CPU();
     REM *rm = new REM();
+    Cat *c = new Cat();
+    int i = 0;
 
-    while(1)
-    {
+    while(1) {
+        i++;
         outputHostWindow(*dt, *hn);
-        outputOSInfoWindow(*info);
-        outputNetwork(*n);
-        outputCPU(*cp);
-        outputREM(*rm);
-        outputCAT();
-//        if (getch() == 'q')
-//            exit(1);
+        info->outputOSInfoWindow(_winOSInfo);
+        n->outputNetwork(_winNetwork);
+        cp->outputCPU(_winCPU);
+        rm->outputREM(_winREM);
+        if (i % 2 == 0)
+            c->print_cat1(_winCAT);
+        else
+            c->print_cat2(_winCAT);
+        if (wgetch(_winHost) == 'q' || wgetch(_winNetwork) == 'q' ||
+            wgetch(_winOSInfo) == 'q' || wgetch(_winCPU) == 'q' ||
+            wgetch(_winREM) == 'q' || wgetch(_winCAT) == 'q') {
+            break;
+        }
     }
+//    delete hn;
+//    delete dt;
+//    delete info;
+//    delete n;
+//    delete cp;
+//    delete rm;
+//    delete c;
 }
 
 void    Ncurses::outputHostWindow(DateTime dt, Hostname hn)
@@ -132,86 +147,4 @@ void    Ncurses::outputHostWindow(DateTime dt, Hostname hn)
     box(_winHost, 0, 0);
     wattroff(_winHost, COLOR_PAIR(1));
     wrefresh(_winHost);
-}
-
-void    Ncurses::outputOSInfoWindow(OSInfo info)
-{
-    wattron(_winOSInfo, A_BOLD);
-    wattron(_winOSInfo, COLOR_PAIR(3));
-    mvwprintw(_winOSInfo, 1, 2, "%s", info.getInfo1().c_str());
-    mvwprintw(_winOSInfo, 2, 2, "%s", info.getInfo2().c_str());
-    mvwprintw(_winOSInfo, 3, 2, "%s", info.getInfo3().c_str());
-    wattroff(_winOSInfo, COLOR_PAIR(3));
-    wattroff(_winOSInfo, A_BOLD);
-    wattron(_winOSInfo, COLOR_PAIR(1));
-    box(_winOSInfo, 0, 0);
-    wattroff(_winOSInfo, COLOR_PAIR(1));
-    wrefresh(_winOSInfo);
-}
-
-void    Ncurses::outputNetwork(Network n)
-{
-    wattron(_winNetwork, A_BOLD);
-    wattron(_winNetwork, COLOR_PAIR(4));
-    mvwprintw(_winNetwork, 1, 2, "%s", n.getNetwork().c_str());
-    wattroff(_winNetwork, COLOR_PAIR(4));
-    wattroff(_winNetwork, A_BOLD);
-    wattron(_winNetwork, COLOR_PAIR(1));
-    box(_winNetwork, 0, 0);
-    wattroff(_winNetwork, COLOR_PAIR(1));
-    wrefresh(_winNetwork);
-}
-
-void Ncurses::outputCPU(CPU cp)
-{
-    wattron(_winCPU, A_BOLD);
-    wattron(_winCPU, COLOR_PAIR(5));
-    mvwprintw(_winCPU, 1, 2, "%s", cp.getCPU().c_str());
-    wattroff(_winCPU, COLOR_PAIR(5));
-    wattroff(_winCPU, A_BOLD);
-    wattron(_winCPU, COLOR_PAIR(1));
-    box(_winCPU, 0, 0);
-    wattroff(_winCPU, COLOR_PAIR(1));
-    wrefresh(_winCPU);
-}
-
-
-void Ncurses::outputREM(REM rm)
-{
-    wattron(_winREM, A_BOLD);
-    wattron(_winREM, COLOR_PAIR(6));
-    mvwprintw(_winREM, 1, 2, "%s", rm.getREM().c_str());
-    wattroff(_winREM, COLOR_PAIR(6));
-    wattroff(_winREM, A_BOLD);
-    wattron(_winREM, COLOR_PAIR(1));
-    box(_winREM, 0, 0);
-    wattroff(_winREM, COLOR_PAIR(1));
-    wrefresh(_winREM);
-}
-
-void Ncurses::outputCAT()
-{
-    wattron(_winCAT, A_BOLD);
-    wattron(_winCAT, COLOR_PAIR(6));
-    mvwprintw(_winCAT, 1, 2, "       (`.");
-    mvwprintw(_winCAT, 2, 2, "         ) )");
-    mvwprintw(_winCAT, 3, 2, "        ( (");
-    mvwprintw(_winCAT, 4, 2, "         \\ \\");
-    mvwprintw(_winCAT, 5, 2, "          \\ \\");
-    mvwprintw(_winCAT, 6, 2, "        .-'  `-.");
-    mvwprintw(_winCAT, 7, 2, "       /        `.");
-    mvwprintw(_winCAT, 8, 2, "      (      )    `-._ , ");
-    mvwprintw(_winCAT, 9, 2, "       )   ,'         (.\\--'(");
-    mvwprintw(_winCAT, 10, 2, "       \\  (         ) /      \\");
-    mvwprintw(_winCAT, 11, 2, "        \\  \\_(     / (    <6 (6");
-    mvwprintw(_winCAT, 12, 2, "         \\_)))\\   (   `._  .:Y)__");
-    mvwprintw(_winCAT, 13, 2, "          '''  \\   `-._.'`---^_)))");
-    mvwprintw(_winCAT, 14, 2, "                `-._ )))       ```");
-    mvwprintw(_winCAT, 15, 2, "                    ```           hjw");
-    wattroff(_winCAT, COLOR_PAIR(6));
-    wattroff(_winCAT, A_BOLD);
-    wattron(_winCAT, COLOR_PAIR(1));
-    box(_winCAT, 0, 0);
-    wattroff(_winCAT, COLOR_PAIR(1));
-    wrefresh(_winCAT);
 }

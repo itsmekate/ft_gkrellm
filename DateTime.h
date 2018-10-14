@@ -4,11 +4,9 @@
 
 #ifndef FT_GKRELLM_DATETIME_H
 #define FT_GKRELLM_DATETIME_H
-#include <string>
-#include <ctime>
-#include "Ncurses.h"
+#include "main.h"
 
-class DateTime {
+class DateTime{
     private:
      std::string _dateTime;
     public:

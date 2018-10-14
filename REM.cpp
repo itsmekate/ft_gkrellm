@@ -40,3 +40,17 @@ std::string REM::getREM()
     _REM = line;
     return _REM;
 }
+
+
+void REM::outputREM(WINDOW *_winREM)
+{
+    wattron(_winREM, A_BOLD);
+    wattron(_winREM, COLOR_PAIR(6));
+    mvwprintw(_winREM, 1, 2, "%s", getREM().c_str());
+    wattroff(_winREM, COLOR_PAIR(6));
+    wattroff(_winREM, A_BOLD);
+    wattron(_winREM, COLOR_PAIR(1));
+    box(_winREM, 0, 0);
+    wattroff(_winREM, COLOR_PAIR(1));
+    wrefresh(_winREM);
+}

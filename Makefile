@@ -8,6 +8,7 @@ Network.cpp \
 OSInfo.cpp \
 CPU.cpp \
 REM.cpp \
+Cat.cpp \
 
 OBJ = $(SRCS:.cpp=.o)
 

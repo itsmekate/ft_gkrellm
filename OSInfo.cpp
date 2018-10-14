@@ -53,3 +53,19 @@ std::string OSInfo::getMachine(){ return _buf.machine;}
 std::string OSInfo::getInfo1(){ return _info1;}
 std::string OSInfo::getInfo2(){ return _info2;}
 std::string OSInfo::getInfo3(){ return _info3;}
+
+
+void    OSInfo::outputOSInfoWindow(WINDOW *_winOSInfo)
+{
+    wattron(_winOSInfo, A_BOLD);
+    wattron(_winOSInfo, COLOR_PAIR(3));
+    mvwprintw(_winOSInfo, 1, 2, "%s", _info1.c_str());
+    mvwprintw(_winOSInfo, 2, 2, "%s", _info2.c_str());
+    mvwprintw(_winOSInfo, 3, 2, "%s", _info3.c_str());
+    wattroff(_winOSInfo, COLOR_PAIR(3));
+    wattroff(_winOSInfo, A_BOLD);
+    wattron(_winOSInfo, COLOR_PAIR(1));
+    box(_winOSInfo, 0, 0);
+    wattroff(_winOSInfo, COLOR_PAIR(1));
+    wrefresh(_winOSInfo);
+}

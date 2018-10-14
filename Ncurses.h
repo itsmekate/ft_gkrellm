@@ -4,21 +4,14 @@
 
 #ifndef FT_GKRELLM_NCURSES_H
 #define FT_GKRELLM_NCURSES_H
-#include <Ncurses.h>
-#include <unistd.h>
+#include "main.h"
 #include "DateTime.h"
 #include "Hostname.h"
 #include "OSInfo.h"
-#include "Network.h"
-#include "CPU.h"
-#include "REM.h"
 
 class DateTime;
 class Hostname;
 class OSInfo;
-class Network;
-class CPU;
-class REM;
 
 class Ncurses {
     public:
@@ -38,11 +31,7 @@ class Ncurses {
         void initwindows();
         void runNcurses();
         void outputHostWindow(DateTime dt, Hostname hn);
-        void outputOSInfoWindow(OSInfo info);
-        void outputNetwork(Network n);
-        void outputCPU(CPU cp);
-        void outputREM(REM rm);
-        void outputCAT();
+//        void outputREM(REM rm);
 
     private:
         WINDOW *_winHost;

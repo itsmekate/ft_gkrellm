@@ -4,16 +4,17 @@
 
 #ifndef FT_GKRELLM_NETWORK_H
 #define FT_GKRELLM_NETWORK_H
-#include <iostream>
-#include <string>
+#include "IMonitorModule.h"
 
-class Network {
+class Network{
     public:
         Network();
         Network(Network const &rhs);
         Network const & operator=(Network const &rhs);
         ~Network();
         std::string getNetwork();
+
+        void    outputNetwork(WINDOW *_winNetwork);
 
 
     private:

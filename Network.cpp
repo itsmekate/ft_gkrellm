@@ -2,7 +2,7 @@
 // Created by Kateryna PRASOL on 13.10.2018.
 //
 
-#include "Network.h"
+#include "IMonitorModule.h"
 
 Network::Network()
 {
@@ -39,4 +39,17 @@ std::string Network::getNetwork()
     pclose(top);
     _network = line;
     return _network;
+}
+
+void    Network::outputNetwork(WINDOW *_winNetwork)
+{
+    wattron(_winNetwork, A_BOLD);
+    wattron(_winNetwork, COLOR_PAIR(4));
+    mvwprintw(_winNetwork, 1, 2, "%s", getNetwork().c_str());
+    wattroff(_winNetwork, COLOR_PAIR(4));
+    wattroff(_winNetwork, A_BOLD);
+    wattron(_winNetwork, COLOR_PAIR(1));
+    box(_winNetwork, 0, 0);
+    wattroff(_winNetwork, COLOR_PAIR(1));
+    wrefresh(_winNetwork);
 }

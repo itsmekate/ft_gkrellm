@@ -4,11 +4,9 @@
 
 #ifndef FT_GKRELLM_OSINFO_H
 #define FT_GKRELLM_OSINFO_H
-#include <iostream>
-#include <string>
-#include <sys/utsname.h>
+#include "main.h"
 
-class OSInfo {
+class OSInfo{
 
     public:
         OSInfo();
@@ -24,6 +22,8 @@ class OSInfo {
         std::string getInfo1();
         std::string getInfo2();
         std::string getInfo3();
+
+        void   outputOSInfoWindow(WINDOW *_winOSInfo);
 
 private:
         struct utsname _buf;

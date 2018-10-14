@@ -4,15 +4,17 @@
 
 #ifndef FT_GKRELLM_CPU_H
 #define FT_GKRELLM_CPU_H
-#include <string>
+#include "main.h"
 
-class CPU {
+class CPU{
     public:
         CPU();
         CPU(CPU const &rhs);
         CPU const & operator=(CPU const &rhs);
         ~CPU();
         std::string getCPU();
+
+        void outputCPU(WINDOW *_winCPU);
 
 
     private:
