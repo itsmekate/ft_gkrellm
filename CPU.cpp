@@ -8,10 +8,15 @@ CPU::CPU()
 {
     char line[80];
 
-    FILE *top = popen("top -l 1| grep 'CPU usage' ", "r");
+    FILE *top = popen("top -l 1| grep 'CPU usage: ' ", "r");
     fgets(line, sizeof(line), top);
     pclose(top);
+
+//    FILE *top = popen("top -l 1| grep 'CPU usage: ' ", "r");
+//    fgets(line, sizeof(line), top);
+//    pclose(top);
     _CPU = line;
+//    _percentage
 
 }
 CPU::CPU(CPU const &rhs)
@@ -34,7 +39,7 @@ std::string CPU::getCPU()
 {
     char line[80];
 
-    FILE *top = popen("top -l 1| grep 'CPU usage' ", "r");
+    FILE *top = popen("top -l 1| grep 'CPU usage: ' ", "r");
     fgets(line, sizeof(line), top);
     pclose(top);
     _CPU = line;
@@ -44,9 +49,20 @@ std::string CPU::getCPU()
 void CPU::outputCPU(WINDOW *_winCPU)
 {
     std::string s = getCPU();
+    int d = stoi(s.substr(11, s.length())) / 2;
+    std::string progress (d, ' ');
+
+    wattron(_winCPU, COLOR_PAIR(7));
+    mvwprintw(_winCPU, 3, 2, "..............................................");
+    wattron(_winCPU, COLOR_PAIR(7));
+
     wattron(_winCPU, A_BOLD);
     wattron(_winCPU, COLOR_PAIR(5));
     mvwprintw(_winCPU, 1, 2, "%s", s.c_str());
+    wattroff(_winCPU, COLOR_PAIR(5));
+    wattron(_winCPU, COLOR_PAIR(8));
+    mvwprintw(_winCPU, 3, 2, "%s", progress.c_str());
+    wattroff(_winCPU, COLOR_PAIR(8));
     wattroff(_winCPU, COLOR_PAIR(5));
     wattroff(_winCPU, A_BOLD);
     wattron(_winCPU, COLOR_PAIR(1));

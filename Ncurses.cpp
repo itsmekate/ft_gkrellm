@@ -77,6 +77,10 @@ void    Ncurses::initpairs()
     init_pair(4, COLOR_CYAN, COLOR_BLACK);
     init_pair(5, COLOR_RED, COLOR_BLACK);
     init_pair(6, COLOR_YELLOW, COLOR_BLACK);
+    init_pair(7, COLOR_BLACK, COLOR_BLACK);
+    init_pair(8, COLOR_RED, COLOR_RED);
+    init_pair(9, COLOR_CYAN, COLOR_CYAN);
+    init_pair(10, COLOR_YELLOW, COLOR_YELLOW);
 }
 
 void    Ncurses::drawborders()
@@ -99,39 +103,38 @@ void    Ncurses::drawborders()
 
 void    Ncurses::runNcurses()
 {
-    Hostname *hn = new Hostname();
-    DateTime *dt = new DateTime();
-    OSInfo *info = new OSInfo();
-    Network *n = new Network();
-    CPU *cp = new CPU();
-    REM *rm = new REM();
-    Cat *c = new Cat();
-    int i = 0;
-
-    while(1) {
-        i++;
-        outputHostWindow(*dt, *hn);
-        info->outputOSInfoWindow(_winOSInfo);
-        n->outputNetwork(_winNetwork);
-        cp->outputCPU(_winCPU);
-        rm->outputREM(_winREM);
-        if (i % 2 == 0)
-            c->print_cat1(_winCAT);
-        else
-            c->print_cat2(_winCAT);
-        if (wgetch(_winHost) == 'q' || wgetch(_winNetwork) == 'q' ||
-            wgetch(_winOSInfo) == 'q' || wgetch(_winCPU) == 'q' ||
-            wgetch(_winREM) == 'q' || wgetch(_winCAT) == 'q') {
-            break;
+    try
+    {
+        Hostname *hn = new Hostname();
+        DateTime *dt = new DateTime();
+        OSInfo *info = new OSInfo();
+        Network *n = new Network();
+        CPU *cp = new CPU();
+        REM *rm = new REM();
+        Cat *c = new Cat();
+        int i = 0;
+        while(1) {
+            i++;
+            outputHostWindow(*dt, *hn);
+            info->outputOSInfoWindow(_winOSInfo);
+            n->outputNetwork(_winNetwork);
+            cp->outputCPU(_winCPU);
+            rm->outputREM(_winREM);
+            if (i % 2 == 0)
+                c->print_cat1(_winCAT);
+            else
+                c->print_cat2(_winCAT);
+            if (wgetch(_winHost) == 'q' || wgetch(_winNetwork) == 'q' ||
+                wgetch(_winOSInfo) == 'q' || wgetch(_winCPU) == 'q' ||
+                wgetch(_winREM) == 'q' || wgetch(_winCAT) == 'q') {
+                break;
+            }
         }
     }
-//    delete hn;
-//    delete dt;
-//    delete info;
-//    delete n;
-//    delete cp;
-//    delete rm;
-//    delete c;
+    catch(std::exception &e)
+    {
+        std::cout << "\\033[0;31m'Warning: Don't change terminal size during program run!\\033[0m" << std::endl;
+    }
 }
 
 void    Ncurses::outputHostWindow(DateTime dt, Hostname hn)

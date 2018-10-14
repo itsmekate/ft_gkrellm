@@ -43,13 +43,28 @@ std::string Network::getNetwork()
 
 void    Network::outputNetwork(WINDOW *_winNetwork)
 {
+
+    std::string s = getNetwork();
+    int d = stoi(s.substr(23, 31)) / 50;
+    std::string progress (d, ' ');
+
+    wattron(_winNetwork, COLOR_PAIR(7));
+    mvwprintw(_winNetwork, 3, 2, "..............................................");
+    wattron(_winNetwork, COLOR_PAIR(7));
+
     wattron(_winNetwork, A_BOLD);
     wattron(_winNetwork, COLOR_PAIR(4));
     mvwprintw(_winNetwork, 1, 2, "%s", getNetwork().c_str());
     wattroff(_winNetwork, COLOR_PAIR(4));
+
+    wattron(_winNetwork, COLOR_PAIR(9));
+    mvwprintw(_winNetwork, 3, 2, "%s", progress.c_str());
+    wattroff(_winNetwork, COLOR_PAIR(9));
+
     wattroff(_winNetwork, A_BOLD);
     wattron(_winNetwork, COLOR_PAIR(1));
     box(_winNetwork, 0, 0);
     wattroff(_winNetwork, COLOR_PAIR(1));
     wrefresh(_winNetwork);
 }
+

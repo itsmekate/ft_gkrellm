@@ -19,6 +19,7 @@ class CPU{
 
     private:
         std::string _CPU;
+//        float _percentage;
 };
 
 

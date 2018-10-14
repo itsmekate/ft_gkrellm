@@ -15,7 +15,7 @@ OBJ = $(SRCS:.cpp=.o)
 CPPFLAGS = -Wall -Wextra -Werror -lncurses
 
 all: $(NAME)
-	@echo "\033[0;32m"$(NAME)" is ready!"
+	@echo "\033[0;32m"$(NAME)" is ready!\033[0m"
 
 $(NAME): $(OBJ)
 	clang++ $(CPPFLAGS) $(SRCS) -o $(NAME)

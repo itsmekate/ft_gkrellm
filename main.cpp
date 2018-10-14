@@ -11,16 +11,16 @@ int main(int argc, char **argv)
             delete n;
             return (0);
         }
-        else if(arg1 == "sdl") {
+//        else if(arg1 == "sdl") {
 //            Ncurses *n = new Ncurses();
 //            n->runNcurses();
 //            delete n;
-            return (0);
-        }
+//            return (0);
+//        }
         else
-            std::cout << "Usage: ./ft_gkrellm || ncurses || sdl" << std::endl;
+            std::cout << "Usage: ./ft_gkrellm || ncurses" << std::endl;
     }
     else
-        std::cout << "Usage: ./ft_gkrellm || ncurses || sdl" << std::endl;
+        std::cout << "Usage: ./ft_gkrellm || ncurses" << std::endl;
     return 0;
 }
