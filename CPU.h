@@ -6,7 +6,7 @@
 #define FT_GKRELLM_CPU_H
 #include "main.h"
 
-class CPU{
+class CPU {
     public:
         CPU();
         CPU(CPU const &rhs);
@@ -19,7 +19,6 @@ class CPU{
 
     private:
         std::string _CPU;
-//        float _percentage;
 };
 
 

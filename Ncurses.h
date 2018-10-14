@@ -8,30 +8,28 @@
 #include "DateTime.h"
 #include "Hostname.h"
 #include "OSInfo.h"
+#include "Network.h"
+#include "CPU.h"
+#include "REM.h"
+#include "Cat.h"
+#include "IMonitorDisplay.h"
 
 class DateTime;
 class Hostname;
 class OSInfo;
 
-class Ncurses {
+class Ncurses : public IMonitorDisplay {
     public:
         Ncurses();
         Ncurses(Ncurses &rhs);
         Ncurses const & operator=(Ncurses & rhs);
-        ~Ncurses();
-        WINDOW *getHostWindow();
-        WINDOW *getWindowHost();
-        WINDOW *getWindowNetwork();
-        WINDOW *getWindowOSInfo();
-        WINDOW *getWindowCPU();
-        WINDOW *getWindowREM();
+        virtual ~Ncurses();
 
         void initpairs();
         void drawborders();
         void initwindows();
         void runNcurses();
         void outputHostWindow(DateTime dt, Hostname hn);
-//        void outputREM(REM rm);
 
     private:
         WINDOW *_winHost;

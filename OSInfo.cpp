@@ -45,16 +45,6 @@ OSInfo::~OSInfo()
 }
 
 
-std::string OSInfo::getSysname(){ return _buf.sysname;}
-std::string OSInfo::getNodename(){ return _buf.nodename;}
-std::string OSInfo::getRelease(){ return _buf.release;}
-std::string OSInfo::getVersion(){ return _buf.version;}
-std::string OSInfo::getMachine(){ return _buf.machine;}
-std::string OSInfo::getInfo1(){ return _info1;}
-std::string OSInfo::getInfo2(){ return _info2;}
-std::string OSInfo::getInfo3(){ return _info3;}
-
-
 void    OSInfo::outputOSInfoWindow(WINDOW *_winOSInfo)
 {
     wattron(_winOSInfo, A_BOLD);

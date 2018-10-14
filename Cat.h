@@ -6,7 +6,7 @@
 #define FT_GKRELLM_CAT_H
 #include "main.h"
 
-class Cat{
+class Cat {
     public:
         Cat();
         Cat(Cat const &rhs);

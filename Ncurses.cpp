@@ -17,7 +17,6 @@ Ncurses::Ncurses()
     initwindows();
     initpairs();
     drawborders();
-//    runNcurses();
 }
 Ncurses::Ncurses(Ncurses &rhs)
 {
@@ -46,12 +45,6 @@ Ncurses::~Ncurses()
     delwin(_winCAT);
     endwin();
 }
-
-WINDOW *Ncurses::getHostWindow() {return _winHost;}
-WINDOW *Ncurses::getWindowNetwork() {return _winNetwork;}
-WINDOW *Ncurses::getWindowOSInfo() {return _winOSInfo;}
-WINDOW *Ncurses::getWindowCPU() {return _winCPU;}
-WINDOW *Ncurses::getWindowREM() {return _winREM;}
 
 void Ncurses::initwindows()
 {

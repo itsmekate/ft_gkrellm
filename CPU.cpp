@@ -12,12 +12,7 @@ CPU::CPU()
     fgets(line, sizeof(line), top);
     pclose(top);
 
-//    FILE *top = popen("top -l 1| grep 'CPU usage: ' ", "r");
-//    fgets(line, sizeof(line), top);
-//    pclose(top);
     _CPU = line;
-//    _percentage
-
 }
 CPU::CPU(CPU const &rhs)
 {

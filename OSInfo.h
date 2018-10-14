@@ -14,15 +14,6 @@ class OSInfo{
         OSInfo & operator=(OSInfo const &rhs);
         ~OSInfo();
 
-        std::string getSysname();
-        std::string getNodename();
-        std::string getRelease();
-        std::string getVersion();
-        std::string getMachine();
-        std::string getInfo1();
-        std::string getInfo2();
-        std::string getInfo3();
-
         void   outputOSInfoWindow(WINDOW *_winOSInfo);
 
 private:
